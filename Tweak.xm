@@ -26,10 +26,15 @@ static float duration = 0.4;
 %hook SBAppSwitcherController
 
 -(void)animateDismissalToDisplayLayout:(id)arg1 withCompletion:(/*^block*/id)arg2 {
-	NSLog(@"dismiss %f,%f,%f,%f", origFrame.origin.x,origFrame.origin.y,origFrame.size.width,origFrame.size.height);
 
 	[UIView animateWithDuration:duration animations:^{
-		self.pageController.view.frame = CGRectMake(0,143,origFrame.size.width,origFrame.size.height);
+		CGFloat scale;
+		if (screenHeight > 600) { //iphone 6
+			scale = 162;
+		} else {
+			scale = 143;
+		}
+		self.pageController.view.frame = CGRectMake(0,scale,origFrame.size.width,origFrame.size.height);
 	}];
 	%orig;
 }
@@ -66,11 +71,8 @@ static float duration = 0.4;
 -(void)switcherWillBePresented:(BOOL)arg1 {
 
     %orig;
-	//SBAppSwitcherPeopleScrollView *people = MSHookIvar<SBAppSwitcherPeopleScrollView *>(self,"_peopleScrollView");
 	CGRect origPeopleFrame = self.view.frame;
-	//[UIView animateWithDuration:duration animations:^{
-		self.view.frame = CGRectMake(origPeopleFrame.origin.x,screenHeight - 150,origPeopleFrame.size.width,origPeopleFrame.size.height);
-	//}];
+	self.view.frame = CGRectMake(origPeopleFrame.origin.x,screenHeight - 150,origPeopleFrame.size.width,origPeopleFrame.size.height);
 
 }
 
