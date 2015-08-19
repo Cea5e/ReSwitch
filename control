@@ -1,0 +1,10 @@
+Package: com.irepo.reswitch
+Name: ReSwitch
+Depends: mobilesubstrate
+Version: 0.0.1
+Depiction: https://theirepo.com/cydia/depictions/ReSwitch.php
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: william vabrinskas
+Author: william vabrinskas
+Section: Tweaks
