@@ -61,7 +61,7 @@ static float duration = 0.4;
 	%orig;
 	CGRect origIconFrame = self.view.frame;
 	[UIView animateWithDuration:duration animations:^{
-		self.view.frame = iconViewFrame = CGRectMake(origIconFrame.origin.x,appViewFrame.size.height + 60,origIconFrame.size.width,origIconFrame.size.height);
+		self.view.frame = iconViewFrame = CGRectMake(origIconFrame.origin.x,appViewFrame.size.height + 40,origIconFrame.size.width,origIconFrame.size.height);
 	}];
 }
 %end
